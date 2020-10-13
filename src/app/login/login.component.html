@@ -1,43 +1,77 @@
 <div class="container">
-    <mat-card>
-        <mat-tab-group>
-          <mat-tab label="Login"> 
+	<mat-card>
+		<mat-tab-group>
+			<mat-tab label="Login"> 
+				<div class="formLogin">
+					<div class="container">
+						<div class="form-container">
+							<form [formGroup]="loginForm" (submit)="login()">
+								<mat-form-field class="w-100">
+									<mat-label> Email / Mobile
+									</mat-label>
+									<input matInput formControlName="email" maxlength="255" minlength="6" required>
+									<mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+										<span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+										<span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+									</mat-error>
+								</mat-form-field>
 
-            <div class="formLogin">
-                <mat-form-field class="w-100">
-                  <mat-label>Username / Email</mat-label>
-                  <input matInput>
-              </mat-form-field>
+								<mat-form-field class="w-100">
+									<mat-label>Password</mat-label>
+									<input matInput formControlName="password" required [type]="hide ? 'password' : 'text'" minlength="6" maxLength="24"  >
+									<mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+										<span *ngIf="loginForm.controls.password.errors.required">Password is <strong>required.</strong></span>
+										<span *ngIf="loginForm.controls.password.errors.minlength">Password must be at least 6 and max 24 characters long.</span>
+									</mat-error>
+									<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"><mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+								</mat-form-field>
+								<button mat-raised-button color="primary" class="button" type="submit">Log In</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</mat-tab>
+			<mat-tab label="Register">
+				<div class="formLogin">
+					<div class="container">
+						<div class="form-container">
+							<form [formGroup]="registerForm" (submit)="register()">
+								<mat-form-field class="w-100">
+									<mat-label> Email
+									</mat-label>
+									<input matInput formControlName="email" maxlength="255" minlength="6" required>
+									<mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
+										<span *ngIf="registerForm.controls.email.errors.required">This field is mandatory.</span>
+										<span *ngIf="registerForm.controls.email.errors.pattern">This field is invalid.</span>
+									</mat-error>
+								</mat-form-field>
 
-              <mat-form-field class="w-100">
-                <mat-label>Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </mat-form-field>
-            <button mat-stroked-button color="primary">Login</button>
-        </div>
-    </mat-tab>
-    <mat-tab label="Register"> 
-        <div class="formLogin">
-            <mat-form-field class="w-100">
-              <mat-label>Username / Email</mat-label>
-              <input matInput>
-          </mat-form-field>
+								<mat-form-field class="w-100">
+									<mat-label> Mobile
+									</mat-label>
+									<input matInput formControlName="mobile" maxlength="10" minlength="10" required>
+									<mat-error *ngIf="registerForm.controls.mobile.touched && registerForm.controls.mobile.invalid">
+										<span *ngIf="registerForm.controls.mobile.errors.required">This field is mandatory.</span>
+										<span *ngIf="registerForm.controls.mobile.errors.pattern">This field is invalid.</span>
+									</mat-error>
+								</mat-form-field>
 
-          <mat-form-field class="w-100">
-            <mat-label>Password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-        </mat-form-field>
-        <button mat-stroked-button color="primary">Login</button>
-    </div>
-</mat-tab>
-</mat-tab-group>
+								<mat-form-field class="w-100">
+									<mat-label>Password</mat-label>
+									<input matInput formControlName="password" required [type]="hide ? 'password' : 'text'" minlength="6" maxLength="24"  >
+									<mat-error *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid">
+										<span *ngIf="registerForm.controls.password.errors.required">Password is <strong>required.</strong></span>
+										<span *ngIf="registerForm.controls.password.errors.minlength">Password must be at least 6 and max 24 characters long.</span>
+									</mat-error>
+									<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"><mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+								</mat-form-field>
 
-
-</mat-card>
+								<button mat-raised-button color="primary" class="button" type="submit">Register</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</mat-tab>
+		</mat-tab-group>
+	</mat-card>
 </div>
