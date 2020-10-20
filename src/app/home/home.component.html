@@ -1,1 +1,71 @@
-<p>home works!</p>
+<section id="about">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="primary-title">About</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="primary-content">
+					<p>We are the New INDIAN Startup for ecommerce! Support Us! Thank you!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="primary-title">Contact</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30253.33794224949!2d73.7956823861875!3d18.589034818509052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b8c684c414d3%3A0x4756a62035babeb2!2sPimple%20Gurav%2C%20Pimpri-Chinchwad%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1602865509779!5m2!1sen!2sin" width="100%" frameborder="0" style="border:1px solid #ddd;border-radius: 5px;overflow: hidden;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+			<div class="col-6">
+				<div class="primary-content">
+					<p><strong>E-Mail:</strong> info@wonderworld.com</p>
+					<p><strong>Enquiry Mob:</strong> 888-888-8888</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="subscribe">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="primary-title">Subscribe</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="primary-content">
+					<div class="subscribe-wrapper">
+						<!-- <div class="subscribe-title">
+							
+						</div> -->
+						<div class="subscribe-content">
+							<form [formGroup]="subscribeNewsletter" (submit)="subscribeToNewsletter()">
+								<mat-form-field class="w-100 mb-10" appearance="outline">
+									<mat-label> Enter Your Email </mat-label>
+									<input matInput formControlName="email" maxlength="255" class="w-100" autocomplete="off" inlength="6" required>
+									<mat-error *ngIf="subscribeNewsletter.controls.email.touched && subscribeNewsletter.controls.email.invalid">
+										<span *ngIf="subscribeNewsletter.controls.email.errors.required">This field is mandatory.</span>
+										<span *ngIf="subscribeNewsletter.controls.email.errors.pattern">This field is invalid.</span>
+									</mat-error>
+								</mat-form-field>
+								<div class="row">
+									<div class="col-12 text-center">
+										<button mat-raised-button color="primary" class="pl-3 rounded-pill pr-3 button mt-3 subscribeBtn" type="submit">Subscribe to Our Newsletter</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,14 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-
-.m-10 {
-    margin: 10px;
+html, body { height: 100%; }
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+	font-family: 'Roboto', sans-serif !important;
 }
-.mb-10 {
-    margin-bottom: 10px;
+// * {
+// 	outline: none !important;
+// }
+// @import '~@angular/material/_theming.scss';
+// @include mat-core(); 
+
+/* Required BootStrap Classes START */ 
+
+/* Required BootStrap Classes END */
+
+
+/* Common css for all modules START */
+.primary-title {
+	font-size: 24px;
+	font-weight: bold;
+	// text-decoration: underline;
+	padding: 30px 0;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	text-transform: uppercase;
+}
+.primary-title:before {
+	clear: both;
+	content: '';
+	display: table;
+	width: 100%;
+}
+.primary-title:after {
+	clear: both;
+	position: absolute;
+	bottom: 18px;
+	content: '';
+	display: table;
+	height: 5px;
+	width: 100%;
+	background-color: #673ab7;
 }
 
+/* Common css for all modules END */
 

@@ -4,9 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '',   redirectTo: '/login', pathMatch: 'full' },
-  {  path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
-}
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  {  path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
+  {  path: 'myaccount', loadChildren: () => import('./myaccount/myaccount.module').then(m => m.MyaccountModule)},
+  {  path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
+  {  path: 'checkout', loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule)},
+  {  path: '**', loadChildren: () => import('./helper/helper.module').then(m => m.HelperModule)}
 ];
 
 @NgModule({

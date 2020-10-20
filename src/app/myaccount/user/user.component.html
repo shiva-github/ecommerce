@@ -1,0 +1,148 @@
+<section>
+	<div class="container ">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="primary-title">
+					My Account
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<mat-tab-group>
+					<mat-tab label="User Account"> 
+						
+						<form [formGroup]="userSettings" (submit)="saveUserSettings()">
+							<div class="container">
+								<div class="row">
+									
+									<div class="col-md-6">
+										<mat-form-field class="w-100 mt-3">
+											<mat-label> First Name
+											</mat-label>
+											<input matInput formControlName="fname" disabled="true" maxlength="255" minlength="6">
+											<mat-error *ngIf="userSettings.controls.fname.touched && userSettings.controls.fname.invalid">
+												<span *ngIf="userSettings.controls.fname.errors.required">This field is mandatory.</span>
+												<span *ngIf="userSettings.controls.fname.errors.pattern">This field is invalid.</span>
+											</mat-error> 
+										</mat-form-field>
+									</div>
+									<div class="col-md-6">
+										<mat-form-field class="w-100 mt-3">
+											<mat-label> Last Name
+											</mat-label>
+											<input matInput formControlName="lname" maxlength="255" minlength="6">
+											<mat-error *ngIf="userSettings.controls.lname.touched && userSettings.controls.lname.invalid">
+												<span *ngIf="userSettings.controls.lname.errors.required">This field is mandatory.</span>
+												<span *ngIf="userSettings.controls.lname.errors.pattern">This field is invalid.</span>
+											</mat-error> 
+										</mat-form-field>
+									</div>
+									
+									<div class="col-md-6">
+										<mat-form-field class="w-100 mt-3">
+											<mat-label> Email
+											</mat-label>
+											<input matInput formControlName="email" maxlength="255" minlength="6">
+											<mat-error *ngIf="userSettings.controls.email.touched && userSettings.controls.email.invalid">
+												<span *ngIf="userSettings.controls.email.errors.required">This field is mandatory.</span>
+												<span *ngIf="userSettings.controls.email.errors.pattern">This field is invalid.</span>
+											</mat-error> 
+										</mat-form-field>
+									</div>
+									<div class="col-md-6">
+										<mat-form-field class="w-100 mt-3">
+											<mat-label>Mobile</mat-label>
+											<input matInput formControlName="mobile" minlength="6" maxLength="24">
+											<mat-error *ngIf="userSettings.controls.mobile.touched && userSettings.controls.mobile.invalid">
+												<span *ngIf="userSettings.controls.mobile.errors.required">This field is mandatory.</span>
+												<span *ngIf="userSettings.controls.mobile.errors.pattern">This field is invalid.</span>
+											</mat-error> 
+										</mat-form-field>
+									</div>
+									<div class="col-md-6">
+										<mat-form-field class="w-100 mt-3">
+											<mat-label>Password</mat-label>
+											<input matInput formControlName="password" minlength="6" maxLength="24">
+											<mat-error *ngIf="userSettings.controls.password.touched && userSettings.controls.password.invalid">
+												<span *ngIf="userSettings.controls.password.errors.required">This field is mandatory.</span>
+												<span *ngIf="userSettings.controls.password.errors.pattern">This field is invalid.</span>
+											</mat-error> 
+										</mat-form-field>
+									</div>
+									<div class="col-md-6">
+										<mat-form-field class="w-100 mt-3">
+											<mat-label>Confirm Password</mat-label>
+											<input matInput formControlName="cpassword" minlength="6" maxLength="24">
+											<mat-error *ngIf="userSettings.controls.cpassword.touched && userSettings.controls.cpassword.invalid">
+												<span *ngIf="userSettings.controls.cpassword.errors.required">This field is mandatory.</span>
+												<span *ngIf="userSettings.controls.cpassword.errors.pattern">This field is invalid.</span>
+											</mat-error> 
+										</mat-form-field>
+									</div>
+									<div class="col-md-12 mb-5 mt-3">
+										
+										<button mat-stroked-button color="primary" class="button mr-3" *ngIf='hideEdit' (click)="hideEdit = !hideEdit" type="submit">Cancel</button>
+										<button mat-raised-button color="primary" class="button mr-3" *ngIf='hideEdit' type="submit">Save</button>
+										<button mat-raised-button color="primary" class="button" *ngIf="!hideEdit" (click)="hideEdit = !hideEdit" type="submit">Edit</button>
+									</div>
+								</div>
+							</div>
+						</form>
+						
+						
+						
+						
+						
+						
+						
+						
+					</mat-tab>
+					<mat-tab label="Address"> 
+						
+						<div class="col-md-12 mt-4 addrList">
+							<mat-card class="mb-4 w-100">
+								<mat-card-title>Home/Office</mat-card-title>
+								<mat-card-subtitle>Last Updated Date: 10 Jan, 2050</mat-card-subtitle>
+								<mat-card-content class="addr-details">
+									<div class="w-100 clear border">Mahatma phule nagar Warud, </div>
+									<div class="w-100 clear border">Distict: <span class="float-right">ABC</span> </div>
+									<div class="w-100 clear border">State: <span class="float-right">ABC</span> </div>
+									<div class="w-100 clear border">Pin: <span class="float-right">12345</span> </div>
+								</mat-card-content>
+							</mat-card>
+						</div>
+						
+					</mat-tab>
+					<mat-tab label="Cards"> 
+						test
+					</mat-tab>
+					
+				</mat-tab-group>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+		</div>
+		
+	</div>
+</section>
