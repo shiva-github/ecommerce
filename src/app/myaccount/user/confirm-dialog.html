@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{data.action}}</h1>
+<div mat-dialog-content>
+  <p>Are you sure to <strong>Delete</strong> this address?</p>
+</div>
+<div mat-dialog-actions>
+	<button  mat-mini-fab color="primary" class="" [mat-dialog-close]="data">
+		<span class="material-icons">done</span>
+	</button>
+	<button  mat-mini-fab mat-dialog-close cdkFocusInitial>
+		<span class="material-icons">close</span>
+	</button>
+
+</div>

@@ -1,0 +1,94 @@
+<h1 mat-dialog-title>{{addressObj.action}}</h1>
+
+<div mat-dialog-content>
+	<form [formGroup]="addrForm">
+		<div class="">{{addressObj.address.id}}</div>
+
+		<div class="row">
+		<mat-form-field class="col-md-4 mt-3">
+			<mat-label> Firstname
+			</mat-label>
+			<input matInput formControlName="firstname" maxlength="255" minlength="1">
+			<mat-error *ngIf="addrForm.controls['firstname'].touched && addrForm.controls['firstname'].invalid">
+				<span *ngIf="addrForm.controls['firstname'].errors.required">This field is mandatory.</span>
+				<span *ngIf="addrForm.controls['firstname'].errors.pattern">This field is invalid.</span>
+			</mat-error>
+		</mat-form-field>
+		
+		<mat-form-field class="col-md-4 mt-3">
+			<mat-label> Lastname
+			</mat-label>
+			<input matInput formControlName="lastname" maxlength="255" minlength="1">
+			<mat-error *ngIf="addrForm.controls['lastname'].touched && addrForm.controls['lastname'].invalid">
+				<span *ngIf="addrForm.controls['lastname'].errors.required">This field is mandatory.</span>
+				<span *ngIf="addrForm.controls['lastname'].errors.pattern">This field is invalid.</span>
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="col-md-4 mt-3">
+			<mat-label> Address Type
+			</mat-label>
+			<mat-select formControlName="type">
+				<mat-option value="Home">Home</mat-option>
+				<mat-option value="Office">Office</mat-option>
+			  </mat-select>
+			<mat-error *ngIf="addrForm.controls['type'].touched && addrForm.controls['type'].invalid">
+				<span *ngIf="addrForm.controls['type'].errors.required">This field is mandatory.</span>
+				<span *ngIf="addrForm.controls['type'].errors.pattern">This field is invalid.</span>
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="col-md-12 mt-3">
+			<mat-label> Address Line 1
+			</mat-label>
+			<input matInput formControlName="addrLine1" maxlength="255" minlength="1">
+			<mat-error *ngIf="addrForm.controls['addrLine1'].touched && addrForm.controls['addrLine1'].invalid">
+				<span *ngIf="addrForm.controls['addrLine1'].errors.required">This field is mandatory.</span>
+				<span *ngIf="addrForm.controls['addrLine1'].errors.pattern">This field is invalid.</span>
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="col-md-12 mt-3">
+			<mat-label> Address Line 2
+			</mat-label>
+			<input matInput formControlName="addrLine2" maxlength="255" minlength="1">
+			<mat-error *ngIf="addrForm.controls['addrLine2'].touched && addrForm.controls['addrLine2'].invalid">
+				<span *ngIf="addrForm.controls['addrLine2'].errors.required">This field is mandatory.</span>
+				<span *ngIf="addrForm.controls['addrLine2'].errors.pattern">This field is invalid.</span>
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="col-md-4 mt-3">
+			<mat-label> Distict
+			</mat-label>
+			<input matInput formControlName="distict" maxlength="255" minlength="1">
+			<mat-error *ngIf="addrForm.controls['distict'].touched && addrForm.controls['distict'].invalid">
+				<span *ngIf="addrForm.controls['distict'].errors.required">This field is mandatory.</span>
+				<span *ngIf="addrForm.controls['distict'].errors.pattern">This field is invalid.</span>
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="col-md-4 mt-3">
+			<mat-label> State
+			</mat-label>
+			<input matInput formControlName="state" maxlength="255" minlength="1">
+			<mat-error *ngIf="addrForm.controls['state'].touched && addrForm.controls['state'].invalid">
+				<span *ngIf="addrForm.controls['state'].errors.required">This field is mandatory.</span>
+				<span *ngIf="addrForm.controls['state'].errors.pattern">This field is invalid.</span>
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="col-md-4 mt-3">
+			<mat-label> Pin
+			</mat-label>
+			<input matInput formControlName="pin" maxlength="255" minlength="1">
+			<mat-error *ngIf="addrForm.controls['pin'].touched && addrForm.controls['pin'].invalid">
+				<span *ngIf="addrForm.controls['pin'].errors.required">This field is mandatory.</span>
+				<span *ngIf="addrForm.controls['pin'].errors.pattern">This field is invalid.</span>
+			</mat-error>
+		</mat-form-field>
+	</div>
+	</form>
+</div>
+<div mat-dialog-actions class="mt-3">
+	<button  mat-mini-fab color="primary" class="" (click)="submit()" >
+		<span class="material-icons">done</span>
+	</button>
+	<button  mat-mini-fab mat-dialog-close>
+		<span class="material-icons">close</span>
+	</button>
+</div>
