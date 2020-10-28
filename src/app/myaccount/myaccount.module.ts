@@ -12,7 +12,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
-import { MatChipsModule } from '@angular/material/chips';
 
 
 import { OrdersComponent } from './orders/orders.component';
@@ -36,7 +35,7 @@ const routes: Routes = [
 		MatDialogModule,
 		CommonModule,
 		MatButtonModule,
-		MatChipsModule,
+		
 		MatSelectModule,
 		MatDividerModule,
 		ReactiveFormsModule,

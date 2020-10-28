@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import {  MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 
 
@@ -12,6 +13,7 @@ import {  MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dia
 export class UserComponent implements OnInit {
 	userSettings:FormGroup;
 	hideEdit:Boolean;
+	cardList: Array<Card>;
 	constructor(private formBuilder: FormBuilder, public dialog: MatDialog) { }
 	address: Array<Address>;
 	public demo1TabIndex = 1;
@@ -25,7 +27,7 @@ export class UserComponent implements OnInit {
 			password: [{value: '', disabled: true}, [Validators.required]],
 			cpassword: [{value: '', disabled: true}, [Validators.required]],
 		});
-
+		this.cardList = [];
 		this.address = [
 			// new Address(1),
 			// new Address(2),
@@ -43,7 +45,7 @@ export class UserComponent implements OnInit {
 			addrObj =	{
 				data: {
 					address: null,
-					action: 'Add New Address' 
+					action: 'Add New Address'
 				}
 			}
 		} else {
@@ -78,38 +80,47 @@ export class UserComponent implements OnInit {
 	submitUser() {
 		return false;
 	}
-	deleteDialog(col) {
-		console.log('delete Address PopUp');
-		console.log(col);
+	deleteDialog(col, delName) {
+		let ActionName = '';
+		if(delName == 'Address') {
+			ActionName = 'Delete Address Confirmation';
+		} else {
+			if(delName == 'Card') {
+				ActionName = 'Delete Card Confirmation';
+			} else {
+				return;
+			}
+		}
 		const dialogRef = this.dialog.open(DeleteDialog, {
 			data: {
-				action: 'Delete Address Confirmation',
-				data: col, 
+				action: ActionName,
+				data: col,
+				name: delName,
 			}
 		});
 		dialogRef.afterClosed().subscribe(result => {
 			console.log('The dialog was closed', result);
 		  });
 	}
-	CardAddEdit(col) {
-		let addrObj;
+	CardAddEdit(CardData) {
+		let cardObj;
 
-		if(col == null) {
-			addrObj =	{
+		if(CardData == null) {
+			cardObj =	{
 				data: {
 					address: null,
 					action: 'Add New Card' 
 				}
 			}
 		} else {
-			addrObj = {
+			cardObj = {
 				data: {
-					address: col,
+					address: CardData,
 					action: 'Edit Card' 
 				}
 			}
 		}
-		const dialogRef = this.dialog.open(CardDialog, addrObj);
+		const dialogRef = this.dialog.open(CardDialog, cardObj);
 
 		dialogRef.afterClosed().subscribe(result => {
 			//  if updated Address
@@ -119,12 +130,21 @@ export class UserComponent implements OnInit {
 			// if added new Address
 			// console.log(, result.length, result);
 			if(typeof result != 'string') {
-				this.address.push(<Address>result);
+				this.cardList.push(<Card>result);
 			}
 		  });
 	}
 }
-
+class Card {
+	cno: string;
+	id: number;
+	action: string;
+	constructor() {
+		this.cno = ''; 
+		this.id = 1;
+		this.action = 'Add'; 
+	}
+}
 class Address {
 	type: String;
 	firstname: String;
@@ -222,15 +242,15 @@ export class CardDialog {
 	addrForm:FormGroup;
 	addrLine1: string;
 
-	constructor(public dialogRef: MatDialogRef<AddressDialog>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public addressObj: any) {
+	constructor(public dialogRef: MatDialogRef<AddressDialog>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public cardObject: Card) {
 		// this.addressObj = data;
 		// this.addressObj.address = new Address(1000);
 		// console.log(this.addressObj.address);
-		if(this.addressObj.address == null) {
-			this.addressObj.address = new Address(null);
+		if(this.cardObject.id == null) {
+			this.cardObject = new Card();
 		}
 		this.addrForm = this.formBuilder.group({
-			'firstname': [this.addressObj.address.firstname, [Validators.required,]],
+			'firstname': [this.cardObject.cno, [Validators.required,]],
 		});
 	}
 	submit() {
