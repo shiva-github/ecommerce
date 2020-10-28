@@ -10,11 +10,31 @@
 		<div class="row">
 			<div class="col-md-12">
 				<mat-card class="mb-4 order-list">
-					<mat-card-title>Order No. 123456</mat-card-title>
-					<mat-card-subtitle>Date: 10 Jan, 2050</mat-card-subtitle>
+					<mat-card-title>Order No. 123456
+					</mat-card-title>
+					<mat-card-subtitle>Date: 10 Jan, 2050<div class="badge badge-warning float-right">
+						Pending
+					  </div></mat-card-subtitle>
+					<mat-divider></mat-divider>
 					<mat-card-content class="order-details">
-						<div class="w-100 clear border">Total Products:<span class="float-right">10</span> </div>
-						<div class="w-100 clear border">MRP:<span class="float-right">-$1000.23</span> </div>
+						<div class="row prodList">
+							<div class="col-md-4">
+								<mat-card>
+									<img mat-card-image src="/assets/shiba2.jpg" alt="Photo of a Shiba Inu">
+									<mat-card-content>
+										<p>
+											The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+											A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+											bred for hunting.
+										</p>
+									</mat-card-content>
+								</mat-card>
+							</div>
+						</div>
+						<div class="rows-table row">
+							<div class="w-100 clear border">Total Products:<span class="float-right">10</span> </div>
+							<div class="w-100 clear border">MRP:<span class="float-right">-$1000.23</span> </div>
+						</div>
 					</mat-card-content>
 				</mat-card>
 			</div>

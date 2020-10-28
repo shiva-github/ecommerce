@@ -9,21 +9,11 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				<mat-tab-group>
+				<mat-tab-group [(selectedIndex)]="demo1TabIndex">
 					<mat-tab label="User Account"> 
 						
 						<form [formGroup]="userSettings" (submit)="saveUserSettings()">
-							<div class="container">
+							<div class="col-md-12">
 								<div class="row">
 									
 									<div class="col-md-6">
@@ -99,33 +89,89 @@
 								</div>
 							</div>
 						</form>
-						
-						
-						
-						
-						
-						
-						
-						
+
 					</mat-tab>
 					<mat-tab label="Address"> 
 						
 						<div class="col-md-12 mt-4 addrList">
-							<mat-card class="mb-4 w-100">
-								<mat-card-title>Home/Office</mat-card-title>
-								<mat-card-subtitle>Last Updated Date: 10 Jan, 2050</mat-card-subtitle>
-								<mat-card-content class="addr-details">
-									<div class="w-100 clear border">Mahatma phule nagar Warud, </div>
-									<div class="w-100 clear border">Distict: <span class="float-right">ABC</span> </div>
-									<div class="w-100 clear border">State: <span class="float-right">ABC</span> </div>
-									<div class="w-100 clear border">Pin: <span class="float-right">12345</span> </div>
-								</mat-card-content>
-							</mat-card>
+							<div class="row">
+								<div class="col-md-12 mb-4 ">
+									<button mat-raised-button class="float-right" (click)="openDialog(null);" color="primary">
+										<span class="material-icons">add</span> Add Address
+									  </button>
+								</div>
+							</div>
+							<div class="row mb-5">
+								<div class="col-md-12" *ngIf="address.length == 0">
+									<div class="noObjMsg">
+										No Address to Show
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4" *ngFor="let col of address">
+									<mat-card class="mb-4">
+										<mat-card-title>{{col.type}}</mat-card-title>
+										<mat-card-subtitle class="clear">{{col.firstname + ' ' + col.lastname }}</mat-card-subtitle>
+										<mat-card-content class="addr-details">
+											<div class="w-100 clear border">{{col.addrLine1}} <br />{{col.addrLine2}} </div>
+											<div class="w-100 clear border">Distict: <span class="float-right">{{col.distict}}</span> </div>
+											<div class="w-100 clear border">State: <span class="float-right">{{col.state}}</span> </div>
+											<div class="w-100 clear border">Pin: <span class="float-right">{{col.pin}}</span> </div>
+										</mat-card-content>
+										<mat-card-actions class="pl-3 pr-3 pb-3">
+											<button  mat-mini-fab (click)="openDialog(col)">
+												<span class="material-icons">edit</span>
+											</button>
+											<button  mat-mini-fab class="ml-2"  color="warn" (click)="deleteDialog(col)">
+												<span class="material-icons">delete</span>
+											</button>
+										</mat-card-actions>
+									</mat-card>
+								</div>
+							</div>
 						</div>
 						
 					</mat-tab>
 					<mat-tab label="Cards"> 
-						test
+						<div class="col-md-12 mt-4 addrList">
+							<div class="row">
+								<div class="col-md-12 mb-4 ">
+									<button mat-raised-button class="float-right" (click)="CardAddEdit(null);" color="primary">
+										<span class="material-icons">add</span> Add Card
+									  </button>
+								</div>
+							</div>
+							<div class="row mb-5">
+								<div class="col-md-12" *ngIf="address.length == 0">
+									<div class="noObjMsg">
+										No Card to Show
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4" *ngFor="let col of address">
+									<mat-card class="mb-4">
+										<mat-card-title>{{col.type}}</mat-card-title>
+										<mat-card-subtitle class="clear">{{col.firstname + ' ' + col.lastname }}</mat-card-subtitle>
+										<mat-card-content class="addr-details">
+											<div class="w-100 clear border">{{col.addrLine1}} <br />{{col.addrLine2}} </div>
+											<div class="w-100 clear border">Distict: <span class="float-right">{{col.distict}}</span> </div>
+											<div class="w-100 clear border">State: <span class="float-right">{{col.state}}</span> </div>
+											<div class="w-100 clear border">Pin: <span class="float-right">{{col.pin}}</span> </div>
+										</mat-card-content>
+										<mat-card-actions class="pl-3 pr-3 pb-3">
+											<button  mat-mini-fab (click)="openDialog(col)">
+												<span class="material-icons">edit</span>
+											</button>
+											<button  mat-mini-fab class="ml-2"  color="warn" (click)="deleteDialog(col)">
+												<span class="material-icons">delete</span>
+											</button>
+										</mat-card-actions>
+									</mat-card>
+								</div>
+							</div>
+						</div>
 					</mat-tab>
 					
 				</mat-tab-group>

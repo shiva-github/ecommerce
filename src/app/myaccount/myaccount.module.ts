@@ -9,10 +9,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 import { OrdersComponent } from './orders/orders.component';
-import { UserComponent } from './user/user.component';
+import { UserComponent, AddressDialog, DeleteDialog, CardDialog } from './user/user.component';
 
 
 
@@ -27,16 +31,21 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	declarations: [OrdersComponent, UserComponent],
+	declarations: [OrdersComponent, UserComponent, AddressDialog, DeleteDialog, CardDialog],
 	imports: [
+		MatDialogModule,
 		CommonModule,
 		MatButtonModule,
+		MatChipsModule,
+		MatSelectModule,
+		MatDividerModule,
 		ReactiveFormsModule,
 		MatCardModule,
 		MatTabsModule,
 		MatFormFieldModule,
 		MatToolbarModule,
 		MatInputModule,
+		
 		RouterModule.forChild(routes),
 	]
 })

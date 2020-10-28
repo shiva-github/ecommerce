@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +27,7 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
 	BrowserAnimationsModule,
 	MatButtonModule,
+	MatDialogModule,
 	MatIconModule,
 	MatMenuModule,
 	MatToolbarModule
