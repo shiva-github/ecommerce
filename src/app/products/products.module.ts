@@ -6,6 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
+
 
 import { ListingComponent } from './listing/listing.component';
 import { SingleComponent } from './single/single.component';
@@ -25,6 +27,8 @@ const routes: Routes = [
   imports: [
 	CommonModule,
 	MatCardModule,
+	CarouselModule, 
+	WavesModule,
 	MatIconModule,
 	MatButtonModule,
 	RouterModule.forChild(routes),

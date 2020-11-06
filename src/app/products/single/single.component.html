@@ -1,15 +1,53 @@
 <section>
 	<div class="container ">
+		
 		<div class="row">
-			<div class="col-md-12">
-				<div class="primary-title">
+			<div class="col-md-5 mb-4 mt-4">
+				<mdb-carousel [isControls]="true" class="carousel slide" [animation]="'slide'">
+					<mdb-carousel class="carousel slide" [animation]="'slide'">
+						<mdb-carousel-item>
+							<div class="view w-100">
+							  <img class="d-block w-100" src="https://www.jotform.com/resources/assets/icon/min/jotform-icon-orange-400x400.png" alt="First slide">
+							  <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+							</div>
+							<div class="carousel-caption">
+							  <h3 class="h3-responsive">Light mask</h3>
+							  <p>First text</p>
+							</div>
+						  </mdb-carousel-item>
+						  <mdb-carousel-item>
+							<div class="view w-100">
+							  <img class="d-block w-100" src="https://www.jotform.com/resources/assets/icon/min/jotform-icon-orange-400x400.png" alt="Second slide">
+							  <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+							</div>
+							<div class="carousel-caption">
+							  <h3 class="h3-responsive">Strong mask</h3>
+							  <p>Secondary text</p>
+							</div>
+						  </mdb-carousel-item>
+						  <mdb-carousel-item>
+							<div class="view w-100">
+							  <img class="d-block w-100" src="https://www.jotform.com/resources/assets/icon/min/jotform-icon-orange-400x400.png" alt="Third slide">
+							  <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+							</div>
+							<div class="carousel-caption">
+							  <h3 class="h3-responsive">Slight mask</h3>
+							  <p>Third text</p>
+							</div>
+						  </mdb-carousel-item>
+					  </mdb-carousel>
+				  </mdb-carousel>
+			</div>
+			<div class="col-md-7 mb-4 mt-3">
+				<div class="prod-title">
 					{{'Product Name'}}
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 mb-4">
-				
+				<div class="prod-price">
+					₹ {{'55.00'}}
+				</div>
+				<div class="prod-desc">
+					{{'Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus.'}}
+				</div>
 			</div>
 		</div>
 	</div>
