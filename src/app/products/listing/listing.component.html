@@ -8,18 +8,18 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4 mb-4">
+			<div class="col-md-4 mb-4" *ngFor="let prod of allProducts">
 				<mat-card class="card-shadow">
-					<a routerLink='/products/1'>
-						<img mat-card-image src="/assets/shiba2.jpg" alt="Photo of a Shiba Inu" />
+					<a [routerLink]='prod.prodLink'>
+						<img mat-card-image [src]="prod.imageLink" [alt]="prod.name" />
 					</a>
-					<a routerLink='/products/1'>
-						<mat-card-title>Product Name</mat-card-title>
+					<a [routerLink]='prod.prodLink'>
+						<mat-card-title>{{prod.name}}</mat-card-title>
 					</a>
 
-					<mat-card-subtitle>Category</mat-card-subtitle>
+					<mat-card-subtitle>{{prod.category}}</mat-card-subtitle>
 					<mat-card-actions>
-						<button mat-raised-button><mat-icon>add_shopping_cart</mat-icon></button>
+						<button mat-raised-button (click)="addToCart(prod.prodID);"><mat-icon>add_shopping_cart</mat-icon></button>
 						<button mat-raised-button color='primary'>BUY NOW</button>
 					  </mat-card-actions>
 				</mat-card>
